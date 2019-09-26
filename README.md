@@ -1,6 +1,6 @@
 ### 接著跑我的訓練
 
-```python
+```
 python train.py --dataset csv --csv_train ./annotations.csv --csv_classes ./classes.csv --state_dict ./model/0926_csv_retinanet_8.state_dict --batch_size 4 --dump_prefix 0926_ > log.txt
 ```
 
@@ -8,7 +8,7 @@ python train.py --dataset csv --csv_train ./annotations.csv --csv_classes ./clas
 ### Train
 
 有切驗證集（建議用這個，才不會和我一樣訓練完沒資料測試XD）：
-```python
+```
 python train.py --dataset csv --csv_train ./annotations.csv --csv_val ./val_annotations.csv --csv_classes ./classes.csv --batch_size 4 --dump_prefix 0926_ > log.txt
 ```
 
@@ -18,13 +18,13 @@ python train.py --dataset csv --csv_train ./annotations.csv --csv_val ./val_anno
 - 最後面的 > log.txt 只是把training過程的資訊存到log.txt，要監看的話可以再開一個terminal，然後用```tail -f log.txt```
 
 沒切驗證集（全部拿去訓練，不過最後會沒有資料測試模型有沒有over-fitting）：
-```python
+```
 python train.py --dataset csv --csv_train ./annotations.csv --csv_classes ./classes.csv > log.txt
 ```
 
 ### Test
 
-```python
+```
 python test.py --dataset csv --csv ./val_annotations.csv --csv_classes classes.csv --state_dict /path/to/your/model/weight.state_dict
 ```
 
@@ -34,7 +34,7 @@ python test.py --dataset csv --csv ./val_annotations.csv --csv_classes classes.c
 ### Visualize
 
 這是用來可視化預測結果，會把預測的框畫在照片上然後存起來
-```python
+```
 python visualize.py --csv_classes classes.csv --img_prefix ./data/aggregation/ --state_dict /path/to/your/weight.state_dict --step_frame 100 --conf_thres 0.7 --dump_dir ./visualize_image/
 ```
 
@@ -52,3 +52,4 @@ python visualize.py --csv_classes classes.csv --img_prefix ./data/aggregation/ -
 ### Others
 
 - 還有很多其他參數可以調整，原則上應該是不用調，想調的話可以看每個.py有哪些parser，然後輸入command的時候照著調整
+
